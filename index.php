@@ -56,6 +56,7 @@ $names = array();
 					</p>
 				</div>
 				<div id="viewport"></div>
+                <a href="https://github.com/bonfus/PopTape"><img style="position: absolute; top: 0; right: 10px; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 			</div>
 		</div><!-- Grid 2/3 and 1/3-->
 		<div class="grid grid-pad">
@@ -83,8 +84,8 @@ foreach($texts as $text)
                         <li class='tape'>
                         <?php
                             $fname=preg_replace('/\.[^.]+$/','',$text);
-                            $fname=substr($fname, strlen ($btdirectory.'POPTAPE_'));
-                            $mp3name = 'POPTAPE_' . $fname . '.mp3';
+                            $fname=substr($fname, strlen ($btdirectory . $filenameprefix));
+                            $mp3name = $filenameprefix . $fname . '.mp3';
                             $fname=str_replace('_', ' ', $fname);
                             $split = explode(' ', $fname,2);
                             if (count($split) > 1) {
@@ -92,7 +93,7 @@ foreach($texts as $text)
                             }
                         ?>
                             <?php echo $fname; ?> <br />
-                            <a download href="<?php echo $text; ?>"><img class="tape" src="img/torrent.png">TORRENT</a> <a download href="torrents/<?php echo $mp3name; ?>"><img class="tape" src="img/mp3.png">MP3</a>
+                            <a download href="<?php echo $text; ?>"><img class="tape" src="img/torrent.png">TORRENT</a> <a download href="<?php echo $btdirectory . $mp3name; ?>"><img class="tape" src="img/mp3.png">MP3</a>
                         </li>
 <?php
 }
